@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-09-13 21:22:36
- * @LastEditTime: 2020-09-14 20:21:19
+ * @LastEditTime: 2020-09-14 21:10:58
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /reduxDemo/store/reducer.js
@@ -53,6 +53,7 @@ function addItem(state, action) {
             content: '输入不能为空',
         }
         Modal.error(config)
+        return newState
     }
 }
 
@@ -73,14 +74,18 @@ function getList(state, action) {
 export default (state = defaultState, action) => {
     // !!!!reducer 中只能接收state  不能改变state!!!
     switch (action.type) {
-        case CHANGE_VAL: return changeVal(state, action)
-        case ADD_ITEM: return addItem(state, action)
-        case DEL_ITEM: return delItem(state, action)
-        case GET_LIST: return getList(state, action)
+        case CHANGE_VAL:
+            return changeVal(state, action)
+        case ADD_ITEM:
+            return addItem(state, action)
+        case DEL_ITEM:
+            return delItem(state, action)
+        case GET_LIST:
+            return getList(state, action)
         default:
             return state
     }
-    
+
     // if (action.type === CHANGE_VAL) {
     //     // 声明局部变量来深度拷贝它来进行修改
     //     let newState = JSON.parse(JSON.stringify(state))
