@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-09-13 23:47:52
- * @LastEditTime: 2020-09-14 00:32:15
+ * @LastEditTime: 2020-09-14 14:09:31
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /reduxDemo/demo/src/TodoListUI.js
@@ -38,9 +38,8 @@ import { Input, Button, List } from 'antd'
 //         )
 //     }
 // }
-
 // 封装无状态组件 性能更佳
-const TodoListUI = (props)=>{
+const TodoListUI = (props) => {
     return (
         <div style={{ margin: '10px' }}>
             <div>
@@ -56,7 +55,11 @@ const TodoListUI = (props)=>{
                 <List
                     bordered
                     dataSource={props.list}
-                    renderItem={(item, index) => (<List.Item onClick={() => { props.delItem(index) }}>{item}</List.Item>)}
+                    renderItem={(item, index) => (
+                        <List.Item style={{ position: 'relative' }}>
+                            {item}
+                            <Button type='default' style={{ right: '30px', position: 'absolute', top: '6px' }} onClick={() => { props.delItem(index) }}>删除</Button>
+                        </List.Item>)}
                 />
             </div>
         </div>

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-09-13 20:54:55
- * @LastEditTime: 2020-09-14 00:31:11
+ * @LastEditTime: 2020-09-14 20:43:35
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /reduxDemo/demo/src/TodoList.js
@@ -12,7 +12,6 @@ import store from './store/index'
 import { changeInputValAction, addItemAction, delItemAction, getToList } from './store/actionCreators'
 
 import TodoListUI from './TodoListUI'
-// import axios from 'axios'
 
 class TodoList extends Component {
 
@@ -40,17 +39,6 @@ class TodoList extends Component {
         );
     }
     componentDidMount() {
-        // axios.get('https://www.easy-mock.com/mock/5cfcce489dc7c36bd6da2c99/xiaojiejie/getList')
-        // .then((res) => {
-        //     console.log("res===",res)
-        // })
-        // let data = [
-        //     "测试数据5",
-        //     "测试数据6",
-        //     "测试数据7",
-        // ]
-        // const action = getListAction(data)
-        // store.dispatch(action)
         const action = getToList()
         store.dispatch(action)
     }
